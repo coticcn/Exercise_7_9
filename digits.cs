@@ -1,35 +1,43 @@
+
+/* The program will group the numbers entered by the user by number of 
+ * digits and will say how many of each there are. It ends when the user 
+ * writes "end".*/
+ 
+ 
 using System;
 
 class digits
 {
- static void Main()
- {
-	 //counters of number of digits a is for one digit, b is for 2 digits, c is for 3 digits and d is for more than 3 digits
-     int a = 0, b = 0, c = 0, d = 0;
-      Console.Write("Insert a number: ");
-      // read the number as string to check the word "end"
-      string e = Console.ReadLine();
-     while(e!="end"){
-int input = Convert.ToInt32(e);
-       if(input != 0)
-{
-       if(input/10 == 0)
-           a ++;  // it only has one digit
-       else 
-       if (input/100 == 0)
-		b ++;  // the number has 2 digits
-        else
-        if (input/1000 == 0)
-        c ++;  // the number has 3 digits
-        else
-           d++;  // the number has more than 3 digits
-        }
-      e = Console.ReadLine();
+		static void Main()
+		{
+			
+			int oneDigit = 0, twoDigit = 0, threeDigit = 0, 
+			moreThanThreeDigit = 0;
+			string userTyping;											
+			
+			Console.WriteLine("Insert a number: ");
+			userTyping = Console.ReadLine();
+	
+    		while(userTyping!="end"){
+				int input = Convert.ToInt32(userTyping);
+				if ( input != 0 )
+				{
+						if (input / 10 == 0)
+						oneDigit ++;  
+						else if (input / 100 == 0)
+						twoDigit ++;  
+						else if (input / 1000 == 0)
+						threeDigit ++;  
+						else
+						moreThanThreeDigit++;  
+				}
+				Console.WriteLine("Insert another number: ");
+				userTyping = Console.ReadLine();
+			}
+
+			Console.WriteLine("one: {0} two: {1} three: {2} more: {3}", 
+			oneDigit, twoDigit, threeDigit, moreThanThreeDigit); 
+
+
+		}
 }
-
-Console.WriteLine("one: {0} two: {1} three: {2} more: {3}", a, b, c, d); 
-
-
- }
-}
-
